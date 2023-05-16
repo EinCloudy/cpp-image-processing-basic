@@ -53,16 +53,16 @@ public:
 
             // Apply the filter to the pixels around the current pixel
             for(int j = -1; j <= 1; j++) {
-                // The x coordinate of the pixel to apply the filter to
                 for(int k = -1; k <= 1; k++) {
+                    // The value of the filter at the current position
+                    int filterValue = doubleFilter[k + 1][j + 1];
 
-                    // The y coordinate of the pixel to apply the filter to
+                    // The x and y coordinates of the pixel to apply the filter to
                     int x2 = x + j;
                     int y2 = y + k;
 
                     // Only apply the filter to pixels within the image
                     if(x2 >= 0 && x2 < image->getWidth() && y2 >= 0 && y2 < image->getHeight()) {
-                        int filterValue = doubleFilter[k + 1][j + 1];
                         sumR += pixels[y2 * image->getWidth() + x2].r * filterValue;
                         sumG += pixels[y2 * image->getWidth() + x2].g * filterValue;
                         sumB += pixels[y2 * image->getWidth() + x2].b * filterValue;
