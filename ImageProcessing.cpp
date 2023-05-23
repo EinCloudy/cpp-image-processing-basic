@@ -42,14 +42,14 @@ public:
         Pixel *pixels = image->getPixels();
         Pixel *newPixels = new Pixel[width * height];
 
-        // Apply the filter to each pixel
+        // Iterate over the pixels in the image
         for(int y = 0; y < height; y++) {
             for(int x = 0; x < width; x++) {
                 int sumR = 0;
                 int sumG = 0;
                 int sumB = 0;
 
-                // Apply the filter to the pixels around the current pixel
+                // Apply the filter to the pixel in the 3x3 grid
                 for(int j = -1; j <= 1; j++) {
                     for(int i = -1; i <= 1; i++) {
                         // The value of the filter at the current position
